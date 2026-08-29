@@ -1,0 +1,1098 @@
+/* ============================================================
+   GLOBAL
+============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.08),
+      transparent 30%
+    ),
+    #f5f7fb;
+}
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+
+.navbar {
+  height: 72px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #e6eaf0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  font-weight: 800;
+  color: #14213d;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-text {
+  color: #667085;
+  font-size: 14px;
+}
+
+/* ============================================================
+   PROGRESS
+============================================================ */
+
+.progress-container {
+  max-width: 1000px;
+  margin: 25px auto 0;
+  padding: 0 24px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #667085;
+  font-size: 14px;
+}
+
+.progress-info strong {
+  color: #1d4ed8;
+}
+
+.progress-bar {
+  height: 8px;
+  border-radius: 99px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  transition: width 0.35s ease;
+}
+
+/* ============================================================
+   BACK
+============================================================ */
+
+.back-button {
+  margin: 22px max(7%, 24px);
+  border: none;
+  background: transparent;
+  color: #475467;
+  font-weight: 700;
+  padding: 8px 0;
+}
+
+.back-button:hover {
+  color: #1d4ed8;
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.hero {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 24px;
+}
+
+.hero-content {
+  max-width: 850px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background: #eaf2ff;
+  color: #1d4ed8;
+  padding: 9px 16px;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 25px 0 20px;
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #101828;
+}
+
+.hero h1 span {
+  display: block;
+  color: #2563eb;
+}
+
+.subtitle {
+  max-width: 680px;
+  margin: auto;
+  color: #667085;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.feature-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.feature-highlights div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #475467;
+  font-size: 14px;
+}
+
+.feature-highlights strong {
+  color: #16a34a;
+}
+
+.note {
+  margin-top: 28px;
+  color: #98a2b3;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+
+.start-button,
+.ai-main-button,
+.secondary-button {
+  border-radius: 12px;
+  padding: 14px 22px;
+  font-weight: 800;
+  border: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.start-button {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+.start-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.25);
+}
+
+.ai-main-button {
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.ai-main-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  background: white;
+  border: 1px solid #d0d5dd;
+  color: #344054;
+}
+
+.secondary-button:hover {
+  background: #f9fafb;
+}
+
+/* ============================================================
+   COMMON SECTIONS
+============================================================ */
+
+.question-section,
+.checklist-section,
+.ai-section {
+  width: min(900px, calc(100% - 40px));
+  margin: 50px auto;
+}
+
+.question-section h2,
+.checklist-section h2,
+.ai-section h2 {
+  font-size: clamp(30px, 5vw, 44px);
+  margin: 8px 0 15px;
+  letter-spacing: -1px;
+  color: #101828;
+}
+
+.question-section > p,
+.checklist-section > p,
+.ai-section > p {
+  color: #667085;
+  line-height: 1.7;
+}
+
+.small-title {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  font-weight: 900;
+  color: #2563eb;
+}
+
+/* ============================================================
+   QUESTION CARD
+============================================================ */
+
+.question-card {
+  margin-top: 30px;
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.05);
+}
+
+.question-card h3 {
+  margin-top: 0;
+  font-size: 21px;
+}
+
+/* ============================================================
+   OPTIONS
+============================================================ */
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.options button {
+  border: 1px solid #d0d5dd;
+  background: white;
+  border-radius: 16px;
+  padding: 22px;
+  text-align: left;
+  transition: 0.2s ease;
+}
+
+.options button:hover {
+  border-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+}
+
+.options strong {
+  display: block;
+  color: #101828;
+  margin-bottom: 7px;
+}
+
+.options span {
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   AI BUTTONS
+============================================================ */
+
+.document-ai-button {
+  width: 100%;
+  margin-top: 18px;
+  border: 1px solid #c7d2fe;
+  background: #eef2ff;
+  color: #3730a3;
+  border-radius: 11px;
+  padding: 12px 16px;
+  font-weight: 800;
+}
+
+.document-ai-button:hover:not(:disabled) {
+  background: #e0e7ff;
+}
+
+.standalone-ai {
+  max-width: 500px;
+}
+
+.mini-ai-button {
+  border: 1px solid #c7d2fe;
+  background: #f5f3ff;
+  color: #4338ca;
+  border-radius: 9px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* ============================================================
+   LOADING ANIMATION
+============================================================ */
+
+.loading-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.loading-dots {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.loading-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: loadingBounce 1s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loadingBounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   CHECKLIST
+============================================================ */
+
+.checklist {
+  display: grid;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.check-item {
+  display: flex;
+  gap: 18px;
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.check-item > span {
+  font-size: 27px;
+}
+
+.check-item strong {
+  font-size: 17px;
+}
+
+.check-item p {
+  color: #667085;
+  line-height: 1.6;
+  margin: 8px 0 13px;
+}
+
+/* ============================================================
+   DOCUMENT STATUS
+============================================================ */
+
+.document-status-banner {
+  margin: 28px 0;
+  padding: 20px;
+  border-radius: 18px;
+  background: #eef6ff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-icon {
+  font-size: 28px;
+}
+
+.document-status-banner p {
+  margin: 5px 0 0;
+  color: #667085;
+}
+
+.document-counter {
+  margin-left: auto;
+  font-size: 22px;
+  font-weight: 900;
+  color: #2563eb;
+}
+
+/* ============================================================
+   DOCUMENT CARDS
+============================================================ */
+
+.document-list {
+  display: grid;
+  gap: 18px;
+}
+
+.document-card {
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.document-completed {
+  border-color: #86efac;
+}
+
+.document-heading {
+  display: flex;
+  gap: 14px;
+}
+
+.document-icon {
+  font-size: 30px;
+}
+
+.document-heading h3 {
+  margin: 0;
+}
+
+.document-heading p {
+  color: #667085;
+  line-height: 1.5;
+}
+
+.document-buttons {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.document-buttons button {
+  border: 1px solid #d0d5dd;
+  background: white;
+  border-radius: 9px;
+  padding: 9px 12px;
+}
+
+.document-buttons button.selected {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 800;
+}
+
+.privacy-box {
+  margin: 25px 0;
+  padding: 18px;
+  background: #fffbea;
+  border: 1px solid #f5e6a8;
+  border-radius: 14px;
+}
+
+.privacy-box p {
+  color: #667085;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   READINESS
+============================================================ */
+
+.readiness-card {
+  margin-top: 30px;
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 22px;
+  padding: 28px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.score-circle {
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
+  border-radius: 50%;
+  background: #eff6ff;
+  border: 10px solid #bfdbfe;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-number {
+  font-size: 28px;
+  font-weight: 900;
+  color: #1d4ed8;
+}
+
+.score-label {
+  font-size: 13px;
+  color: #667085;
+}
+
+.readiness-content h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.readiness-content p {
+  color: #667085;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   WHY SCORE
+============================================================ */
+
+.why-score-card {
+  margin-top: 22px;
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.recommendation-header {
+  margin-bottom: 15px;
+}
+
+.recommendation-header h3 {
+  margin: 6px 0 0;
+}
+
+.score-explanation-row,
+.score-total-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.score-explanation-row strong {
+  color: #16a34a;
+}
+
+.score-total-row {
+  border-bottom: none;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/* ============================================================
+   SCORE BREAKDOWN
+============================================================ */
+
+.score-breakdown {
+  margin-top: 22px;
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.breakdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breakdown-header h3 {
+  margin: 6px 0 20px;
+}
+
+.total-score {
+  font-weight: 900;
+  font-size: 20px;
+  color: #2563eb;
+}
+
+.score-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px 0;
+  border-top: 1px solid #eaecf0;
+}
+
+.score-row-left {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+
+.score-icon {
+  font-size: 23px;
+}
+
+.score-row-left small {
+  display: block;
+  margin-top: 4px;
+  color: #98a2b3;
+}
+
+.score-value {
+  color: #667085;
+}
+
+.score-value.success {
+  color: #16a34a;
+}
+
+.score-value.warning {
+  color: #dc2626;
+}
+
+/* ============================================================
+   SMART STATUS
+============================================================ */
+
+.smart-status,
+.recommendations,
+.privacy-card {
+  margin-top: 22px;
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.status-header h3 {
+  margin-top: 6px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-top: 1px solid #eaecf0;
+}
+
+.status-main {
+  display: flex;
+  gap: 13px;
+}
+
+.status-main > span {
+  font-size: 22px;
+}
+
+.status-main p {
+  color: #667085;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.recommendation {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 13px 0;
+}
+
+.recommendation > span {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #1d4ed8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.recommendation p {
+  margin: 3px 0 0;
+  color: #667085;
+  line-height: 1.5;
+}
+
+.privacy-card {
+  display: flex;
+  gap: 14px;
+}
+
+.privacy-card > span {
+  font-size: 25px;
+}
+
+.privacy-card p {
+  color: #667085;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   STEP ACTIONS
+============================================================ */
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.step-actions .start-button {
+  margin-left: auto;
+}
+
+/* ============================================================
+   JOURNEY
+============================================================ */
+
+.journey {
+  display: grid;
+  gap: 14px;
+  margin: 30px 0;
+}
+
+.journey-step {
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  column-gap: 14px;
+}
+
+.journey-step > span {
+  grid-row: span 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #1d4ed8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+}
+
+.journey-step p {
+  grid-column: 2;
+  margin: 6px 0 0;
+  color: #667085;
+  line-height: 1.5;
+}
+
+.official-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #1d4ed8;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.official-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   AI
+============================================================ */
+
+.ai-section {
+  max-width: 850px;
+}
+
+.ai-type-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 13px;
+  border-radius: 99px;
+  background: #f0fdf4;
+  color: #15803d;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.quick-questions {
+  margin-top: 28px;
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 20px;
+  padding: 22px;
+}
+
+.quick-questions h3 {
+  margin-top: 0;
+}
+
+.quick-question-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.quick-question-list button {
+  border: 1px solid #d0d5dd;
+  background: white;
+  border-radius: 11px;
+  padding: 12px;
+  text-align: left;
+  color: #344054;
+}
+
+.quick-question-list button:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.ai-box {
+  margin-top: 18px;
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.ai-box textarea {
+  width: 100%;
+  min-height: 130px;
+  resize: vertical;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  padding: 14px;
+  outline: none;
+}
+
+.ai-box textarea:focus {
+  border-color: #2563eb;
+}
+
+.ai-box button {
+  margin-top: 12px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 800;
+}
+
+.ai-answer {
+  margin-top: 18px;
+  padding: 22px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 18px;
+}
+
+.ai-answer strong {
+  color: #1d4ed8;
+}
+
+.ai-answer p {
+  color: #344054;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.ai-disclaimer {
+  margin-top: 18px;
+  padding: 17px;
+  border-radius: 14px;
+  background: #fffbea;
+  border: 1px solid #f5e6a8;
+}
+
+.ai-disclaimer p {
+  color: #667085;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.reset-button {
+  margin-top: 25px;
+}
+
+/* ============================================================
+   RESET CONFIRMATION
+============================================================ */
+
+.reset-confirm {
+  margin-top: 25px;
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.reset-confirm p {
+  color: #667085;
+}
+
+.reset-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+
+footer {
+  margin-top: 70px;
+  padding: 25px;
+  text-align: center;
+  border-top: 1px solid #e4e7ec;
+  background: white;
+}
+
+footer p {
+  margin: 0;
+  color: #98a2b3;
+  font-size: 13px;
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .nav-text {
+    display: none;
+  }
+
+  .question-section,
+  .checklist-section,
+  .ai-section {
+    width: min(100% - 28px, 900px);
+    margin-top: 30px;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-question-list {
+    grid-template-columns: 1fr;
+  }
+
+  .readiness-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .document-status-banner {
+    align-items: flex-start;
+  }
+
+  .document-counter {
+    margin-left: auto;
+  }
+
+  .score-row {
+    align-items: flex-start;
+  }
+
+  .step-actions {
+    flex-direction: column;
+  }
+
+  .step-actions button {
+    width: 100%;
+  }
+
+  .step-actions .start-button {
+    margin-left: 0;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+}
