@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
-const API_URL = "http://127.0.0.1:8000";
+// Deployed PassportReady backend
+const API_URL = "https://passportready-api.onrender.com";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -45,6 +46,8 @@ function App() {
 
   const goHome = () => {
     setStep(1);
+    setAiAnswer("");
+    setAiError("");
   };
 
   // ============================================================
@@ -195,12 +198,15 @@ function App() {
         throw new Error(data.answer || "AI request failed");
       }
 
-      setAiAnswer(data.answer || "No answer was returned.");
+      setAiAnswer(
+        data.answer ||
+          "I don't have a specific answer for that yet. Please try one of the suggested questions or verify the information on the official Passport Seva website."
+      );
     } catch (error) {
       console.error("PassportReady AI error:", error);
 
       setAiError(
-        "Unable to connect to PassportReady AI. Make sure the FastAPI backend is running on port 8000."
+        "Unable to connect to PassportReady AI right now. Please try again."
       );
     } finally {
       setAiLoading(false);
@@ -219,6 +225,7 @@ function App() {
     if (!confirmed) return;
 
     setStep(1);
+
     setFirstPassport(null);
     setDifferentAddress(null);
     setHasAddressProof(null);
