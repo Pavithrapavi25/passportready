@@ -14,7 +14,14 @@ https://passportready-api.onrender.com
 https://passportready-api.onrender.com/docs
 
 ---
+## 🔗 Official Passport Seva
 
+For official passport information, application procedures, document requirements, appointment booking, and status tracking, visit the Government of India's official Passport Seva portal:
+
+**Official Website:** https://www.passportindia.gov.in/
+
+> **Disclaimer:** PassportReady is an independent educational/prototype project and is not affiliated with, endorsed by, or operated by the Government of India or Passport Seva.
+---
 ## 📌 Problem Statement
 
 Preparing for a passport application can be confusing, especially for first-time applicants.
